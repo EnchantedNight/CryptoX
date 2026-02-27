@@ -1,0 +1,19 @@
+[package]
+name = "cryptox"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bcrypt = "0.18.0"
+uuid = { version = "1.21.0", features = ["v4", "v7"] }
+sha2 = { version = "0.10.9", optional = true }
+
+[features]
+
+hash = ["sha2"]
+uuid = []
+bcrypt = []
+
+full = []
+
+default = []
