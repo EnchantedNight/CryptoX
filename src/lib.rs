@@ -28,21 +28,21 @@
 //! # {
 //! use cryptox::{Algorithm, v4};
 //!
-//! let hashed = Algorithm::sha256(b"hello");
+//! let hashed = Algorithm::sha256(b"content");
 //! let id = v4();
 //! # }
 //! ```
 
-#[cfg(feature = "uuid")]
-pub mod uuid;
 #[cfg(feature = "hash")]
 pub mod hash;
 #[cfg(feature = "rand")]
 pub mod rand;
-
 #[cfg(feature = "uuid")]
-pub use uuid::*;
+pub mod uuid;
+
 #[cfg(feature = "hash")]
 pub use hash::*;
 #[cfg(feature = "rand")]
 pub use rand::*;
+#[cfg(feature = "uuid")]
+pub use uuid::*;

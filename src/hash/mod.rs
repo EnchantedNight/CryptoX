@@ -1,6 +1,6 @@
 //! # Hash Module
 //!
-//! Provides functions to generate SHA-256 and SHA-512 hashes.
+//! Provides functions to generate SHA256 and SHA512 hashes.
 //! Requires the `hash` feature.
 
 #[cfg(not(feature = "hash"))]
