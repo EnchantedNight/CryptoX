@@ -4,9 +4,10 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-bcrypt = { version = "0.18.0", optional = true }
 uuid = { version = "1.21.0", features = ["v4", "v7"], optional = true }
 sha2 = { version = "0.10.9", optional = true }
+rand = { version = "0.10.0", optional = true, features = ["std"] }
+hex = { version = "0.4.3", optional = true }
 
 [[example]]
 name = "main"
@@ -15,8 +16,8 @@ name = "main"
 
 hash = ["dep:sha2"]
 uuid = ["dep:uuid"]
-bcrypt = ["dep:bcrypt"]
+rand = ["dep:rand", "dep:hex"]
 
-full = ["hash", "uuid", "bcrypt"]
+full = ["hash", "uuid", "rand"]
 
 default = []

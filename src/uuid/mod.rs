@@ -32,3 +32,6 @@ pub fn v4() -> Uuid {
 pub fn v7() -> Uuid {
     Uuid::now_v7()
 }
+
+#[cfg(test)]
+mod tests;
