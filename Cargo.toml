@@ -1,6 +1,8 @@
 [package]
 name = "cryptox"
-version = "1.0.1"
+description = "Centralized crypto utilities for rust"
+license = "MIT"
+version = "1.0.3"
 edition = "2024"
 
 [dependencies]
