@@ -1,4 +1,7 @@
-//! ### Hash module provides functions to generate SHA256 and SHA512 hashes
+//! # Hash Module
+//!
+//! Provides functions to generate SHA-256 and SHA-512 hashes.
+//! Requires the `hash` feature.
 
 #[cfg(not(feature = "hash"))]
 pub fn not_available() {
@@ -7,7 +10,7 @@ pub fn not_available() {
 
 use sha2::{Digest, Sha256, Sha512};
 
-/// Provides functions to generated SHA256 and SHA512 hash
+/// A collection of hashing algorithms.
 pub struct Algorithm {}
 
 impl Algorithm {
