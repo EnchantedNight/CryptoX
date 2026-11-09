@@ -5,8 +5,8 @@
 //!
 //! ## Features
 //!
-//! - **`uuid`**: Provides functions to generate Universally Unique Identifiers (UUIDs) version 4 and 7.
-//! - **`hash`**: Provides functions to generate SHA-256 and SHA-512 hashes.
+//! - **`uuid`**: Provides functions to generate Universally Unique Identifiers (UUIDs) version 4, 5 and 7, plus string parsing.
+//! - **`hash`**: Provides one-shot SHA-256/SHA-512 via [`Algorithm`] and incremental hashing via [`StreamingHasher`].
 //! - **`rand`**: Provides functions to generate random bytes, hex strings, and ranges.
 //! - **`full`**: Enables all features.
 //!
@@ -26,10 +26,11 @@
 //! // Example usage (with 'hash' and 'uuid' features enabled)
 //! # #[cfg(all(feature = "hash", feature = "uuid"))]
 //! # {
-//! use cryptox::{Algorithm, v4};
+//! use cryptox::{Algorithm, uuid::{self, Uuid}};
 //!
 //! let hashed = Algorithm::sha256(b"content");
-//! let id = v4();
+//! let id = uuid::v4();
+//! let stable_id = uuid::v5(Uuid::NAMESPACE_OID, "stable-thing");
 //! # }
 //! ```
 

@@ -1,4 +1,4 @@
-use cryptox::{uuid, hash::Algorithm, rand};
+use cryptox::{hash::Algorithm, hash::StreamingHasher, rand, uuid, uuid::Uuid};
 
 fn main() {
     let id = String::from(uuid::v7());
@@ -9,6 +9,18 @@ fn main() {
 
     sha = Algorithm::sha512(&id.as_bytes());
     println!("SHA512 is - {}", sha);
+
+    let streamed = StreamingHasher::new(Algorithm::Sha256)
+        .update(b"hello ")
+        .update(b"world")
+        .finalize_hex();
+    println!("Streaming SHA256 is - {}", streamed);
+
+    let stable = uuid::v5(Uuid::NAMESPACE_OID, "cryptox/document");
+    println!("Stable UUID v5 is - {}", stable);
+
+    let parsed = uuid::stringify(&stable.to_string()).unwrap();
+    println!("Parsed back is - {} (matches: {})", parsed, parsed == stable);
 
     let bytes = rand::bytes(10);
     println!("Bytes are - {:?}", bytes);
